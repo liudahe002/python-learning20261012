@@ -6,4 +6,8 @@ def for_loop(n: int) -> int:
         res += i
     return res
 
-print(for_loop(100))
+"""Driver Code"""
+if __name__ == "__main__":
+    n = 100
+    res = for_loop(n)
+    print(f"\nfor 循环的求和结果是 res = {res}")
