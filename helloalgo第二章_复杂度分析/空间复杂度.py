@@ -105,6 +105,8 @@ def build_tree(n: int) -> Node | None:
     root.right = build_tree(n - 1)
     return root
 
+# 对数阶(对数阶常见于分治算法)
+
 """Driver Code"""
 if __name__ == "__main__":
     n = 5
