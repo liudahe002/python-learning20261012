@@ -49,6 +49,7 @@ def tail_recur(n, res):
         return res
     # 尾递归调用
     return tail_recur(n - 1, res + n)
+
 # 递归树（斐波那契数列）
 def fib(n: int) -> int:
     """斐波那契数列：递归"""
@@ -59,7 +60,23 @@ def fib(n: int) -> int:
     res = fib(n - 1) + fib(n - 2)
     # 返回结果 f(n)
     return res
-    
+
+# 迭代与递归对比
+def for_loop_recur(n: int) -> int:
+    """使用迭代模拟递归"""
+    # 使用一个显式的栈来模拟系统调用栈
+    stack = []
+    res = 0
+    # 递：递归调用
+    for i in range(n, 0, -1):
+        # 通过"入栈操作"模拟"递"
+        stack.append(i)
+    # 归：返回结果
+    while stack:
+        # 通过"出栈操作"模拟"归"
+        res += stack.pop()
+    # res = 1+2+3+...+n
+    return res
 
 """Driver Code"""
 if __name__ == "__main__":
@@ -69,9 +86,11 @@ if __name__ == "__main__":
     res4 = recur(5)
     res5 = tail_recur(5, 0)
     res6 = fib(5)
+    res7 = for_loop_recur(5)
     print(f"\nfor循环的结果是{res1}")
     print(f"\nwhile循环的结果是{res2}")
     print(f"\n嵌套循环的结果是{res3}")
     print(f"\n递归的结果是{res4}")
     print(f"\n尾递归的结果是{res5}")
     print(f"\n斐波那契数列的第n项的结果是{res6}")
+    print(f"\n使用迭代模拟递归求和结果是{res7}")
